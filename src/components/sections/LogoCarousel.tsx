@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 
@@ -38,12 +37,14 @@ const LogoCarousel: React.FC<LogoCarouselProps> = ({ sponsors, scrollSpeedSecond
           >
             {/* Display logo image if available, otherwise fallback to sponsor name */}
             {sponsor.logo ? (
+  <div className="bg-white p-6 rounded-full flex items-center justify-center h-64 w-64 mx-12 shadow-xl">
   <img
     src={typeof sponsor.logo === "string" ? sponsor.logo : sponsor.logo?.default}
     alt={sponsor.name}
-    className="h-48 max-w-none object-contain drop-shadow-lg rounded-2xl mx-8"
+    className="h-56 max-w-lg object-contain drop-shadow-2xl"
     loading="lazy"
   />
+</div>
 ) : (
   <div className="h-48 flex items-center justify-center text-gray-500 text-2xl mx-8">
     {sponsor.name}

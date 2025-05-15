@@ -51,12 +51,14 @@ const SponsorCard: React.FC<SponsorCardProps> = ({ sponsor, tierInfo }) => {
         {/* Logo image left */}
         <div className="flex-shrink-0 flex items-center justify-center min-h-[96px] min-w-[96px]">
           {sponsor.logo ? (
-            <img
-              src={sponsor.logo}
-              alt={sponsor.name}
-              className="object-contain h-24 w-24 rounded-xl bg-white/10 p-2"
-              loading="lazy"
-            />
+            <div className="bg-white p-2 rounded-full flex items-center justify-center h-24 w-24">
+  <img
+    src={sponsor.logo}
+    alt={sponsor.name}
+    className="object-contain h-20 w-20 drop-shadow-lg"
+    loading="lazy"
+  />
+</div>
           ) : (
             <span className="text-3xl font-bold text-tart-mint">
               {sponsor.name[0]}
@@ -162,12 +164,14 @@ export default SponsorCard;
 
 //                 {sponsor.testimonial && (
 //                   <div className="bg-[#3A2C2C] p-4 rounded-lg flex flex-col items-center">
-//                     <img
-//                       src={sponsor.logo}
-//                       alt={sponsor.name + ' Logo'}
-//                       className="mb-4 h-16 w-auto object-contain rounded-xl drop-shadow"
-//                       style={{ maxHeight: '64px' }}
-//                     />
+//                     <div className="bg-white p-2 rounded-full flex items-center justify-center mb-4 w-20 h-20">
+//                       <img
+//                         src={sponsor.logo}
+//                         alt={sponsor.name + ' Logo'}
+//                         className="object-contain h-16 w-16 drop-shadow-lg"
+//                         style={{ maxHeight: '64px' }}
+//                       />
+//                     </div>
 //                     <h4 className="text-tart-mint font-semibold mb-2">Why We Support</h4>
 //                     <p className="text-gray-300 text-sm italic">"{sponsor.testimonial}"</p>
 //                   </div>

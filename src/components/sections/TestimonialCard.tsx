@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Quote } from 'lucide-react';
 
@@ -29,11 +28,14 @@ const TestimonialCard: React.FC<TestimonialProps> = ({
       <div className="flex items-start gap-4">
         {image && (
           <div className="flex-shrink-0">
-            <img
-              src={image}
-              alt={author}
-              className="w-12 h-12 rounded-full object-cover"
-            />
+            <div className="bg-white rounded-full flex items-center justify-center w-20 h-20 shadow-lg border-2 border-gray-200">
+  <img
+    src={image}
+    alt={author}
+    className="object-cover w-16 h-16 rounded-full"
+    style={{ background: 'white' }}
+  />
+</div>
           </div>
         )}
         <div>

@@ -75,11 +75,14 @@ const SponsorList: React.FC<SponsorListProps> = ({ sponsors }) => {
                   >
                     <div className="w-24 h-24 bg-tart-mint/10 rounded-full flex items-center justify-center mb-2">
                       {sponsor.logo ? (
-                        <img
-                          src={sponsor.logo}
-                          alt={sponsor.name}
-                          className="w-20 h-20 object-contain rounded-full"
-                        />
+                        <div className="bg-white p-2 rounded-full flex items-center justify-center w-20 h-20">
+  <img
+    src={sponsor.logo}
+    alt={sponsor.name}
+    className="object-contain h-16 w-16 drop-shadow-lg"
+    loading="lazy"
+  />
+</div>
                       ) : (
                         <span className="text-tart-mint text-2xl font-bold">
                           {sponsor.name[0]}

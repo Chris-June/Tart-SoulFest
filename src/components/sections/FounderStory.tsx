@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface FounderStoryProps {
   paragraphs: string[];
 }

@@ -1,4 +1,3 @@
-import React from 'react';
 import { MapPin, Mail, Phone, Facebook, Instagram, Twitter } from 'lucide-react';
 import TandSLogo from '../../assets/images/TandS.png';
 
