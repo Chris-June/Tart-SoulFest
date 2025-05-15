@@ -2,6 +2,7 @@
 import ScrollToTopButton from '../components/common/ScrollToTopButton';
 import { motion } from 'framer-motion';
 import { Heart, Music, Users, BookOpen, History as HistoryIcon, Sparkles } from 'lucide-react';
+import { Seo } from '../components/seo';
 import PageHero from '../components/ui/PageHero';
 import GradientText from '../components/ui/GradientText';
 
@@ -21,8 +22,28 @@ const HIGHLIGHTS = [
 ];
 
 const AboutPage = () => {
+  const pageTitle = 'About Us';
+  const pageDescription = 'Learn about the heart and soul behind Tart & Soul Festival. Our mission is to celebrate cultural heritage through the love of butter tarts and soul music.';
+  const pageKeywords = [
+    'about Tart & Soul',
+    'festival history',
+    'our mission',
+    'cultural celebration',
+    'butter tart festival',
+    'community values',
+    'festival team',
+    'event organizers'
+  ];
+
   return (
     <>
+      <Seo 
+        title={pageTitle}
+        description={pageDescription}
+        keywords={pageKeywords}
+        ogType="website"
+        ogImage="/images/og-about.jpg"
+      />
       <div className="pt-20">
         <PageHero
           variant="about"

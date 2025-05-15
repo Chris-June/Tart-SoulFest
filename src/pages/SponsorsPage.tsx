@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import ScrollToTopButton from '../components/common/ScrollToTopButton';
 import { motion, AnimatePresence } from 'framer-motion';
+import { Seo } from '../components/seo';
 import { 
   Crown, Sparkles, Coffee, Gift, BadgeCheck, Rocket, Medal, Users, Globe, 
 } from 'lucide-react';
@@ -160,28 +161,49 @@ const TestimonialCarousel: React.FC<{ testimonials: typeof SPONSOR_TESTIMONIALS 
 };
 
 const SponsorsPage = () => {
+  const pageTitle = 'Become a Sponsor';
+  const pageDescription = 'Partner with Tart & Soul Festival and be part of an unforgettable celebration of culture, community, and culinary excellence. Explore sponsorship opportunities today.';
+  const pageKeywords = [
+    'festival sponsorship',
+    'sponsor opportunities',
+    'brand partnership',
+    'event sponsorship',
+    'marketing opportunities',
+    'corporate sponsorship',
+    'community partnership',
+    'sponsor benefits'
+  ];
+  
   const [activeTab, setActiveTab] = useState<'current' | 'become'>('current');
 
   return (
-    <motion.div className="pt-20">
-      <PageHero
-  variant="sponsors"
-  title="Our Amazing Partners"
-  subtitle="Meet the incredible organizations helping us build a stronger, more vibrant community"
-  highlights={HIGHLIGHTS}
-  image="/images/sponsors-hero.jpg" // Update as needed for your sponsor hero image
-/>
+    <>
+      <Seo 
+        title={pageTitle}
+        description={pageDescription}
+        keywords={pageKeywords}
+        ogType="website"
+        ogImage="/images/og-sponsors.jpg"
+      />
+      <motion.div className="pt-20">
+        <PageHero
+          variant="sponsors"
+          title="Our Amazing Partners"
+          subtitle="Meet the incredible organizations helping us build a stronger, more vibrant community"
+          highlights={HIGHLIGHTS}
+          image="/images/sponsors-hero.jpg"
+        />
 
       {/*
         // for future development
         <SponsorTiers tiers={SPONSOR_TIERS} />
       */}
 
-      <ImpactStats stats={IMPACT_STATISTICS} />
+        <ImpactStats stats={IMPACT_STATISTICS} />
 
-      <SponsorList sponsors={SPONSORS} />
+        <SponsorList sponsors={SPONSORS} />
 
-      <SponsorTestimonials testimonials={SPONSOR_TESTIMONIALS} />
+        <SponsorTestimonials testimonials={SPONSOR_TESTIMONIALS} />
 
 
       {/* Sponsors By Industry */}
@@ -482,7 +504,8 @@ const SponsorsPage = () => {
         </div>
       </section>
       <ScrollToTopButton />
-    </motion.div>
+      </motion.div>
+    </>
   );
 };
 

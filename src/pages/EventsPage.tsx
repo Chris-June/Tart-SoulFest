@@ -1,6 +1,7 @@
 import { Calendar, Music, PartyPopper, ChevronDown, Star, Headphones, Users } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { Seo } from '../components/seo';
 import PageHero from '../components/ui/PageHero';
 import MediaGallery from '../components/sections/MediaGallery';
 import Events from '../components/sections/Events';
@@ -82,6 +83,19 @@ const HIGHLIGHTS = [
 ];
 
 const EventsPage = () => {
+  const pageTitle = 'Events & Schedule';
+  const pageDescription = 'Discover the exciting lineup of events, performances, and activities at Tart & Soul Festival. Plan your visit with our detailed schedule.';
+  const pageKeywords = [
+    'festival events',
+    'event schedule',
+    'music performances',
+    'butter tart competition',
+    'festival lineup',
+    'event calendar',
+    'upcoming events',
+    'festival activities'
+  ];
+
   // Refs for scroll animations
   const mainRef = useRef<HTMLDivElement>(null);
   const artistsRef = useRef<HTMLDivElement>(null);
@@ -117,6 +131,13 @@ const EventsPage = () => {
 
   return (
     <>
+      <Seo 
+        title={pageTitle}
+        description={pageDescription}
+        keywords={pageKeywords}
+        ogType="website"
+        ogImage="/images/og-events.jpg"
+      />
       {/* Hero Section with Enhanced Visual Effects */}
       <div className="relative overflow-hidden">
         <PageHero

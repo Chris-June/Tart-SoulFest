@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import ScrollToTopButton from '../components/common/ScrollToTopButton';
 import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
 import { Music, Star, Heart, Calendar, MapPin, Clock, ChevronDown, Utensils, Users, ArrowRight, CakeSlice } from 'lucide-react';
+import { Seo } from '../components/seo';
 
 // Components
 import PageHero from '../components/ui/PageHero';
@@ -171,8 +172,29 @@ const HomePage = () => {
     return () => clearInterval(interval);
   }, []);
   
+  const pageTitle = 'Home';
+  const pageDescription = 'Experience the ultimate celebration of butter tarts and soul music at Tart & Soul Festival. Join us for delicious treats, live performances, and community fun!';
+  const pageKeywords = [
+    'butter tart festival',
+    'Tart & Soul Festival',
+    'food festival',
+    'soul music',
+    'community event',
+    'Ontario festivals',
+    'baking competition',
+    'local vendors',
+    'family fun'
+  ];
+
   return (
     <>
+      <Seo 
+        title={pageTitle}
+        description={pageDescription}
+        keywords={pageKeywords}
+        ogType="website"
+        ogImage="/images/og-home.jpg"
+      />
       <motion.div style={{ opacity, scale }}>
         <PageHero
           variant="home"
@@ -189,7 +211,7 @@ const HomePage = () => {
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-gradient-to-r from-[#2E1F1F] to-[#3A2C2C] rounded-xl overflow-hidden shadow-2xl border border-tart-mint/20"
+            className="bg-gradient-to-r from-[#2E1F1F] to-[#3A2C2C] rounded-xl shadow-2xl border border-tart-mint/20"
           >
             <div className="p-8 md:p-10 relative">
               {/* Decorative elements */}

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ScrollToTopButton from '../components/common/ScrollToTopButton';
 import PageHero from '../components/ui/PageHero';
 import SubmitRecipeModal from '../components/recipe/SubmitRecipeModal';
-import GradientText from '../components/ui/GradientText';
+// import GradientText from '../components/ui/GradientText';
 import RecipeGrid from '../components/recipes/RecipeGrid';
 import RecipeFilters from '../components/recipes/RecipeFilters';
 import RecipeDetailModal from '../components/recipes/RecipeDetailModal';
@@ -52,6 +52,7 @@ const RECIPE_CATEGORIES: RecipeCategory[] = [
 ];
 
 import { RECIPES } from '../components/recipes/RecipeData';
+
 
 const RECIPES_PER_PAGE = 3;
 
@@ -103,24 +104,13 @@ const RecipesPage = () => {
 
   return (
     <>
-     
-<PageHero
+      <PageHero
           variant="home"
           title="Tart & Soul Recipes"
           subtitle="Bake, Share, and Celebrate"
           image="/images/recipes-hero.jpg"
-          highlights={[
-            { icon: ICON_MAP["cake"], text: "Classic Recipes" },
-            { icon: ICON_MAP["coffee"], text: "Soul Food Fusion" },
-            { icon: ICON_MAP["leaf"], text: "Dietary Options" }
-          ]}
         />
-        <div className="min-h-screen bg-[#432f2f] pt-20">
-  <GradientText className="block text-4xl md:text-6xl font-extrabold pl-48 text-center mb-4">
-   Coming Soon
-  </GradientText>
         <div className="container mx-auto px-4 py-12">
-          
           {/* Search and Filters */}
           <div className="mb-12">
             <RecipeFilters
@@ -183,7 +173,6 @@ const RecipesPage = () => {
           />
         </div>
         <ScrollToTopButton />
-      </div>
     </>
   );
 };

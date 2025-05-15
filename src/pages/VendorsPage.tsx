@@ -1,20 +1,18 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { Seo } from '../components/seo';
+
 import ScrollToTopButton from '../components/common/ScrollToTopButton';
 import { CakeSlice, Loader2, Search, Store, Users } from 'lucide-react';
 
 // Custom components
-
+import PageHero from '../components/ui/PageHero';
 import VendorCard from '../components/vendor/VendorCard';
 import FoodTruckSection from '../components/sections/FoodTruckSection';
 import VendorSpotlight from '../components/vendor/VendorSpotlight';
 import VendorFilter from '../components/vendor/VendorFilter';
 import VendorStats from '../components/vendor/VendorStats';
-import PageHero from '../components/ui/PageHero';
 import GradientText from '../components/ui/GradientText';
-
-// ...other imports above
-
 
 // Types for vendor data
 interface TartVariety {
@@ -227,6 +225,19 @@ const LOCATION_OPTIONS = [
 const ITEMS_PER_PAGE = 5;
 
 const VendorsPage = () => {
+  // SEO Metadata
+  const pageTitle = 'Vendors & Food Trucks | Tart & Soul Festival';
+  const pageDescription = 'Discover the amazing vendors and food trucks at the Tart & Soul Festival. Explore a variety of delicious treats, artisanal goods, and unique finds from local businesses.';
+  const pageKeywords = [
+    'festival vendors',
+    'food trucks',
+    'local artisans',
+    'butter tart vendors',
+    'artisanal food',
+    'local businesses',
+    'festival marketplace',
+    'food vendors'
+  ];
   // State for managing vendors and filtering
   const [page, setPage] = useState(1);
   const [vendors, setVendors] = useState<Vendor[]>([]);
@@ -360,6 +371,13 @@ const VendorsPage = () => {
 
   return (
     <div className="relative overflow-hidden pt-10 bg-[#1F1413]">
+      <Seo 
+        title={pageTitle}
+        description={pageDescription}
+        keywords={pageKeywords}
+        ogType="website"
+        ogImage="/images/og-vendors.jpg"
+      />
       {/* Decorative background */}
       <motion.div
         className="absolute inset-0 bg-[#1F1413] z-0"
@@ -369,7 +387,6 @@ const VendorsPage = () => {
         <div className="absolute inset-0 opacity-30 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgdmlld0JveD0iMCAwIDYwIDYwIj48cGF0aCBkPSJNMzAgNC4yNWEuNzUuNzUgMCAwMS43NS43NXY1MGEuNzUuNzUgMCAwMS0xLjUgMHYtNTBhLjc1Ljc1IDAgMDEuNzUtLjc1ek00LjI1IDMwYS43NS43NSAwIDAxLjc1LS43NWg1MGEuNzUuNzUgMCAwMTAgMS41aC01MGEuNzUuNzUgMCAwMS0uNzUtLjc1eiIgZmlsbD0iIzAwQTg5RiIgZmlsbC1vcGFjaXR5PSIwLjEiLz48L3N2Zz4=')]" />
       </motion.div>
       
-      {/* Page Hero */}
       <PageHero
         variant="vendors"
         title="Our Vendors"

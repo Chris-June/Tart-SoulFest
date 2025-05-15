@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, CSSProperties } from 'react';
 import { motion } from 'framer-motion';
 
 interface GradientTextProps {
@@ -15,18 +15,48 @@ interface GradientTextProps {
 }
 
 const defaultVariants: Record<string, { colors: string[]; angle: number }> = {
+  // Default variants (kept for backward compatibility)
   primary: {
-    colors: ['#00A89F', '#2E1F1F', '#3A2C2C', '#00A89F'],
-    angle: -45,
+    colors: ['#F5DEB3', '#D2B48C', '#B8860B', '#F5DEB3'],
+    angle: 45
   },
   secondary: {
-    colors: ['#FFA600', '#00A89F', '#5A2A0C', '#FFA600'],
-    angle: -45,
+    colors: ['#D4A76A', '#B87333', '#8B4513', '#D4A76A'],
+    angle: -30
   },
   accent: {
-    colors: ['#2E1F1F', '#00A89F', '#FFA600', '#2E1F1F'],
-    angle: -45,
+    colors: ['#FFE4B5', '#FFD39B', '#CD853F', '#FFE4B5'],
+    angle: 90
   },
+  // Butter tart themed variants
+  crust: {
+    colors: ['#F5DEB3', '#D2B48C', '#B8860B', '#F5DEB3'],
+    angle: 45
+  },
+  caramel: {
+    colors: ['#D4A76A', '#B87333', '#8B4513', '#D4A76A'],
+    angle: -30
+  },
+  glaze: {
+    colors: ['#FFE4B5', '#FFD39B', '#CD853F', '#FFE4B5'],
+    angle: 90
+  },
+  brownSugar: {
+    colors: ['#D2B48C', '#A0522D', '#8B4513', '#D2B48C'],
+    angle: 135
+  },
+  maple: {
+    colors: ['#DAA520', '#B8860B', '#8B4513', '#DAA520'],
+    angle: -60
+  },
+  cinnamon: {
+    colors: ['#D2691E', '#A0522D', '#8B4513', '#D2691E'],
+    angle: 0
+  },
+  vanilla: {
+    colors: ['#F5F5DC', '#F5DEB3', '#FFE4B5', '#F5F5DC'],
+    angle: 180
+  }
 };
 
 const buildGradient = (colors: string[], angle: number) => {
@@ -44,6 +74,7 @@ const GradientText: React.FC<GradientTextProps> = ({
   disableAnimation = false,
   delay = 0,
   ease = 'linear',
+  ...props
 }) => {
   // Check if the user prefers reduced motion
   const [reduceMotion, setReduceMotion] = useState(false);
@@ -62,12 +93,19 @@ const GradientText: React.FC<GradientTextProps> = ({
   const effectiveColors = colors || defaultVariants[variant].colors;
   const effectiveAngle = angle ?? defaultVariants[variant].angle;
 
-  // Build the CSS style for the gradient
-  const gradientStyle = {
-    background: buildGradient(effectiveColors, effectiveAngle),
-    backgroundSize: '400% 400%',
+  // Build the gradient background style
+  const gradientBg = buildGradient(effectiveColors, effectiveAngle);
+  
+  // Base styles for the wrapper
+  const wrapperStyle: CSSProperties = {
+    display: 'inline-block',
+    position: 'relative',
+    background: gradientBg,
+    backgroundSize: '200% 200%',
     WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
     backgroundClip: 'text',
+    color: 'transparent',
   };
 
   // Determine if we should animate (disable animation if user prefers reduced motion, 
@@ -75,31 +113,30 @@ const GradientText: React.FC<GradientTextProps> = ({
   const shouldAnimate = !disableAnimation && !reduceMotion && !(pauseOnHover && isHovered);
 
   return (
-    <motion.span
-      className={`inline-block text-transparent pb-4 ${className}`}
-      style={gradientStyle}
-      animate={
-        shouldAnimate
-          ? {
-              backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-            }
-          : {}
-      }
-      transition={
-        shouldAnimate
-          ? {
+    <div style={{ display: 'inline-block', position: 'relative' }}>
+      <motion.span
+        className={className}
+        style={{
+          ...wrapperStyle,
+          position: 'relative',
+          zIndex: 1,
+          ...(shouldAnimate ? {
+            backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
+            transition: {
               duration,
               ease,
               delay,
               repeat: Infinity,
             }
-          : {}
-      }
-      onHoverStart={() => pauseOnHover && setIsHovered(true)}
-      onHoverEnd={() => pauseOnHover && setIsHovered(false)}
-    >
-      {children}
-    </motion.span>
+          } : {})
+        } as any}
+        onHoverStart={() => pauseOnHover && setIsHovered(true)}
+        onHoverEnd={() => pauseOnHover && setIsHovered(false)}
+        {...props}
+      >
+        {children}
+      </motion.span>
+    </div>
   );
 };
 

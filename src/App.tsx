@@ -1,5 +1,6 @@
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HelmetProvider } from 'react-helmet-async';
 import Header from './components/layout/Header';
 import Footer from './components/layout/Footer';
 import HomePage from './pages/HomePage';
@@ -13,24 +14,26 @@ import RecipesPage from './pages/RecipesPage';
 
 function App() {
   return (
-    <Router>
-      <div className="min-h-screen bg-soul-brown">
-        <Header />
-        <main>
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/about" element={<AboutPage />} />
-            <Route path="/events" element={<EventsPage />} />
-            <Route path="/sponsors" element={<SponsorsPage />} />
-            <Route path="/history" element={<HistoryPage />} />
-            <Route path="/vendors" element={<VendorsPage />} />
-            <Route path="/contact" element={<ContactPage />} />
-            <Route path="/recipes" element={<RecipesPage />} />
-          </Routes>
-        </main>
-        <Footer />
-      </div>
-    </Router>
+    <HelmetProvider>
+      <Router>
+        <div className="min-h-screen bg-soul-brown">
+          <Header />
+          <main>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/about" element={<AboutPage />} />
+              <Route path="/events" element={<EventsPage />} />
+              <Route path="/sponsors" element={<SponsorsPage />} />
+              <Route path="/history" element={<HistoryPage />} />
+              <Route path="/vendors" element={<VendorsPage />} />
+              <Route path="/contact" element={<ContactPage />} />
+              <Route path="/recipes" element={<RecipesPage />} />
+            </Routes>
+          </main>
+          <Footer />
+        </div>
+      </Router>
+    </HelmetProvider>
   );
 }
 

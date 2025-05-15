@@ -1,4 +1,5 @@
 
+import { Seo } from '../components/seo';
 import PageHero from '../components/ui/PageHero';
 import ScrollToTopButton from '../components/common/ScrollToTopButton';
 import HistoryHighlights from '../components/sections/HistoryHighlights';
@@ -219,30 +220,52 @@ const FOUNDER_STORY = [
   "Most of all, I hope Tart & Soul brings you the same kind of happiness that I remember so vividly on my mom's face. Because at the end of the day, that's what this festival is all about—good food, good music, and good vibes that make you smile from the inside out."
 ];
 
-const HistoryPage = () => (
-  <>
-    <PageHero
-      variant="history"
-      title="Our Story"
-      subtitle="History, Heritage, and Community"
-      image="/images/history-hero.jpg"
-      highlights={[
-        { icon: BookOpen, text: 'Rich Heritage' },
-        { icon: Users, text: 'Community Stories' },
-        { icon: Award, text: 'Cultural Legacy' },
-      ]}
-    />
-    <HistoryHighlights highlights={HIGHLIGHTS} />
-    <HistoryMediaGallery items={MEDIA_ITEMS} />
-    <HistoryTestimonials testimonials={TESTIMONIALS} />
-    <HistoryTimeline facts={HISTORICAL_FACTS} />
-    <HistoryGallery items={GALLERY_ITEMS} />
-    <HistoryMilestones milestones={MILESTONES} />
-    <FounderStory paragraphs={FOUNDER_STORY} />
-    <LookingForward />
-    <ScrollToTopButton />
-  </>
-);
+const HistoryPage = () => {
+  const pageTitle = 'Our History';
+  const pageDescription = 'Explore the rich history of the Tart & Soul Festival, from its humble beginnings to becoming a beloved annual celebration of community, culture, and culinary excellence.';
+  const pageKeywords = [
+    'festival history',
+    'Tart & Soul timeline',
+    'festival milestones',
+    'event history',
+    'community celebration',
+    'festival heritage',
+    'annual traditions',
+    'festival growth'
+  ];
+
+  return (
+    <>
+      <Seo 
+        title={pageTitle}
+        description={pageDescription}
+        keywords={pageKeywords}
+        ogType="website"
+        ogImage="/images/og-history.jpg"
+      />
+      <PageHero
+        variant="history"
+        title="Our Story"
+        subtitle="History, Heritage, and Community"
+        image="/images/history-hero.jpg"
+        highlights={[
+          { icon: BookOpen, text: 'Rich Heritage' },
+          { icon: Users, text: 'Community Stories' },
+          { icon: Award, text: 'Cultural Legacy' },
+        ]}
+      />
+      <HistoryHighlights highlights={HIGHLIGHTS} />
+      <HistoryMediaGallery items={MEDIA_ITEMS} />
+      <HistoryTestimonials testimonials={TESTIMONIALS} />
+      <HistoryTimeline facts={HISTORICAL_FACTS} />
+      <HistoryGallery items={GALLERY_ITEMS} />
+      <HistoryMilestones milestones={MILESTONES} />
+      <FounderStory paragraphs={FOUNDER_STORY} />
+      <LookingForward />
+      <ScrollToTopButton />
+    </>
+  );
+};
 
 export default HistoryPage;
                       
