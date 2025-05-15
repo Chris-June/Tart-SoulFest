@@ -6,6 +6,7 @@ import WTRLogo from '../assets/images/WTR.png';
 import DougTheFoodieLogo from '../assets/images/DougTheFoodie.png';
 import CKSXLogo from '../assets/images/CKSX.webp';
 import PlanetPrintLogo from '../assets/images/PlanetPrint.png';
+import AdanaLawLogo from '../assets/images/AdanaLaw.png';
 
 export const SPONSOR_TESTIMONIALS = [
   {
@@ -27,8 +28,8 @@ export const SPONSOR_TESTIMONIALS = [
   {
     quote:
       "The festival provided a unique platform to share our passion for creating unforgettable wedding experiences while supporting local community events.",
-    name: "",
-    role: "Event Coordinator, WTR - With This Ring",
+    name: "Doug Robbins",
+    role: "Officiant, WTR - With This Ring",
     logo: WTRLogo,
     tier: "GOLD"
   },
@@ -50,8 +51,8 @@ export const SPONSOR_TESTIMONIALS = [
   },
   {
     quote:
-      "CKSX 99.1 FM is proud to support the Tart & Soul Festival, helping to share the excitement and bring the community together through live event coverage.",
-    name: "",
+      "CKSX 99.1 FM is proud to support the Tart & Soul Festival, helping to share the excitement and bring the community together through live event coverage. Butter tarts, Soul Music, Soul Food and beer..... for a good cause? How could I say no???",
+    name: "Greg",
     role: "Station Manager, CKSX 99.1 FM",
     logo: CKSXLogo,
     tier: "SILVER"
@@ -60,8 +61,16 @@ export const SPONSOR_TESTIMONIALS = [
     quote:
       "Planet Print is thrilled to help bring the festival's vision to life with quality print materials for every event!",
     name: "",
-    role: "Owner, Planet Print",
+    role: "Rick, Planet Print",
     logo: PlanetPrintLogo,
+    tier: "BRONZE"
+  },
+  {
+    quote:
+      "Adana Law is thrilled to help bring the festival's vision to life.",
+    name: "",
+    role: "Adana, Adana Law",
+    logo: AdanaLawLogo,
     tier: "BRONZE"
   }
 ];

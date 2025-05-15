@@ -75,25 +75,42 @@ const FESTIVAL_HIGHLIGHTS = [
 // Testimonials data
 const TESTIMONIALS = [
   {
-    quote: "Tart & Soul brought together everything I love about our community - incredible food, soulful music, and wonderful people. I can't wait for next year!",
-    author: "Melissa J.",
+    quote: "The aroma of butter tarts mixed with soulful melodies made this festival unforgettable!",
+    author: "Ella R.",
     role: "Festival Attendee",
-    year: "2023"
+    year: ""
   },
   {
-    quote: "As a butter tart baker, this festival has given me a platform to share my heritage through food. The community support has been overwhelming.",
-    author: "David T.",
-    role: "Local Baker",
-    year: "2023"
+    quote: "As a chef, I loved seeing how local artisans blended Canadian tradition with soul food flavors.",
+    author: "Chef Antonio M.",
+    role: "Culinary Expert",
+    year: ""
   },
   {
-    quote: "The fusion of soul food and Canadian butter tarts is pure genius. This event has put our town on the culinary map!",
-    author: "Sarah M.",
+    quote: "The live performances brought so much energy; I can’t wait for next year’s lineup!",
+    author: "Marcus L.",
+    role: "Music Enthusiast",
+    year: ""
+  },
+  {
+    quote: "Discovering new tart recipes and meeting fellow food lovers was the highlight of my summer.",
+    author: "Nia P.",
     role: "Food Blogger",
-    year: "2023"
+    year: ""
+  },
+  {
+    quote: "This event perfectly showcased our community’s spirit and creativity. Absolutely loved it!",
+    author: "Devon C.",
+    role: "Community Organizer",
+    year: ""
+  },
+  {
+    quote: "From the competitions to the live stage, every moment felt like a celebration of culture and flavor.",
+    author: "Aisha K.",
+    role: "Local Resident",
+    year: ""
   }
 ];
-
 // Next event data
 const NEXT_EVENT = {
   name: "Tart & Soul Festival",
