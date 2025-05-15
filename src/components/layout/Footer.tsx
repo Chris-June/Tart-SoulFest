@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin, Mail, Phone, Facebook, Instagram, Twitter, Music2 } from 'lucide-react';
+import { MapPin, Mail, Phone, Facebook, Instagram, Twitter } from 'lucide-react';
+import TandSLogo from '../../assets/images/TandS.png';
 
 const Footer = () => {
   return (
@@ -8,7 +9,7 @@ const Footer = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-2 mb-4">
-              <Music2 className="h-8 w-8 text-[#00A89F]" />
+              <img src={TandSLogo} alt="Tart & Soul" className="h-8 w-8 object-contain rounded-full bg-white p-1" />
               <h3 className="text-xl font-bold">Tart & Soul</h3>
             </div>
             <p className="text-gray-300">

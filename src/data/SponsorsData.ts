@@ -7,6 +7,7 @@ import WTRLogo from '../assets/images/WTR.png';
 import DougTheFoodieLogo from '../assets/images/DougTheFoodie.png';
 import CKSXLogo from '../assets/images/CKSX.webp';
 import PlanetPrintLogo from '../assets/images/PlanetPrint.png';
+import AdanaLawLogo from '../assets/images/AdanaLaw.png';
 
 export const HIGHLIGHTS = [
   { icon: HandHeart, text: "Community Support" },
@@ -179,6 +180,23 @@ export const SPONSORS = [
     contactPerson: '',
     industry: 'Printing',
   },
+  {
+    id: 8,
+    name: 'Tart & Soul Festival',
+    tier: 'PLATINUM',
+    logo: AdanaLawLogo,
+    description:
+      'A vibrant community event celebrating music, food, and art.',
+    impact:
+      'Supported the launch of the festival’s first community beer garden, raising over $10,000 for local charities.',
+    location: 'Chatham, ON',
+    website: '',
+    testimonial: '',
+    yearsSponsor: 0,
+    initiatives: [],
+    contactPerson: '',
+    industry: '',
+  }
 ];
 
 export const IMPACT_STATISTICS = [

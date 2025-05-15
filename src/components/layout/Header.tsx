@@ -14,7 +14,7 @@ import {
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Link, useLocation } from 'react-router-dom';
-// import logo from '../../assets/images/tart-and-soul.jpeg';
+import TandSLogo from '../../assets/images/TandS.png';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,9 +47,7 @@ const Header = () => {
               whileTap={{ scale: 0.95, rotate: -10 }}
               transition={{ type: 'spring', stiffness: 300 }}
             >
-              {/* Logo image commented out for now */}
-              {/* <img src={logo} alt="Tart & Soul" className="h-full w-full object-contain" /> */}
-              <Music2 className="h-full w-full text-[#00A89F] drop-shadow-lg transition-colors duration-300 group-hover:text-white" />
+              <img src={TandSLogo} alt="Tart & Soul" className="h-full w-full object-contain" />
             </motion.div>
             <motion.span
               className="text-2xl font-bold"

@@ -1,7 +1,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import GradientText from './GradientText';
-// import logo from '../../assets/images/tart-and-soul.jpeg';
+import TandSLogo from '../../assets/images/TandS.png';
 
 interface PageHeroProps {
   variant: 'home' | 'about' | 'events' | 'sponsors' | 'vendors' | 'history' | 'recipes';
@@ -117,36 +117,11 @@ const PageHero: React.FC<PageHeroProps> = ({
 
   return (
     <header
-      className={`min-h-[70vh] bg-[#2E1F1F] text-white pt-20 relative overflow-hidden flex ${containerStyles[variant]}`}
+      className={`min-h-[70vh] bg-[#2E1F1F] text-white relative overflow-hidden ${containerStyles[variant]}`}
       role="banner"
       aria-label={`${variant} hero section`}
     >
-      {/* Animated SVG/Gradient Backgrounds */}
-      <svg
-        aria-hidden="true"
-        className="absolute inset-0 w-full h-full z-0 pointer-events-none animate-fade-in"
-        style={{ opacity: 0.2 }}
-        xmlns="http://www.w3.org/2000/svg"
-        viewBox="0 0 1440 600"
-        preserveAspectRatio="none"
-      >
-        <defs>
-          <radialGradient id="heroGradient" cx="60%" cy="40%" r="1">
-            <stop offset="0%" stopColor="#FFA600" stopOpacity="0.25" />
-            <stop offset="100%" stopColor="#2E1F1F" stopOpacity="0.8" />
-          </radialGradient>
-        </defs>
-        <ellipse
-          cx="720"
-          cy="300"
-          rx="740"
-          ry="320"
-          fill="url(#heroGradient)"
-        >
-          <animate attributeName="rx" values="740;780;740" dur="8s" repeatCount="indefinite" />
-          <animate attributeName="ry" values="320;350;320" dur="8s" repeatCount="indefinite" />
-        </ellipse>
-      </svg>
+      {/* Empty placeholder - we'll add the logo next to the actual content */}
       {/* Background Image Layer (with alt for SEO) */}
       {image && (
         <img
@@ -172,20 +147,23 @@ const PageHero: React.FC<PageHeroProps> = ({
 
       {/* Content */}
       <div className="container mx-auto px-8 py-24 relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className={`max-w-4xl ${
-            variant === 'home'
-              ? 'ml-8 md:ml-16 py-16'
-              : variant === 'about' || variant === 'events'
-              ? 'ml-8 md:ml-16 py-16'
-              : variant === 'recipes'
-              ? 'mx-auto py-20 text-center'
-              : 'mx-auto py-16'
-          }`}
-        >
+        {/* Flex container for title and logo */}
+        <div className="flex flex-row items-center justify-start gap-8 md:gap-12">
+          {/* Left side: Title and content */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className={`max-w-3xl ${
+              variant === 'home'
+                ? 'ml-8 md:ml-16 py-16'
+                : variant === 'about' || variant === 'events'
+                ? 'ml-8 md:ml-16 py-16'
+                : variant === 'recipes'
+                ? 'mx-auto py-20 text-center'
+                : 'mx-auto py-16'
+            }`}
+          >
           <h1 className={`text-6xl md:text-7xl font-bold mb-12 leading-relaxed ${
             variant === 'home'
               ? 'text-left'
@@ -259,7 +237,28 @@ const PageHero: React.FC<PageHeroProps> = ({
           {/* Extra content and children */}
           {extraContent}
           {children}
-        </motion.div>
+          </motion.div>
+          
+          {/* Logo positioned more to the left */}
+          <div className="flex-shrink-0 flex items-center -ml-4 md:-ml-12">
+            <motion.img
+              src={TandSLogo}
+              alt="Tart & Soul Logo"
+              className="h-96 w-96 md:h-[28rem] md:w-[28rem] object-contain"
+              animate={{ 
+                rotate: [-2, 2, -2],
+                y: [-8, 8, -8]
+              }}
+              transition={{ 
+                duration: 8, 
+                repeat: Infinity, 
+                repeatType: 'mirror', 
+                ease: 'easeInOut' 
+              }}
+              style={{ maxWidth: '50vw', maxHeight: '50vw' }}
+            />
+          </div>
+        </div>
       </div>
 
       {/* Decorations prop for custom floating icons, confetti, etc. */}

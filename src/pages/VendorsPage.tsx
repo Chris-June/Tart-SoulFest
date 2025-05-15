@@ -6,11 +6,15 @@ import { CakeSlice, Loader2, Search, Store, Users } from 'lucide-react';
 // Custom components
 
 import VendorCard from '../components/vendor/VendorCard';
+import FoodTruckSection from '../components/sections/FoodTruckSection';
 import VendorSpotlight from '../components/vendor/VendorSpotlight';
 import VendorFilter from '../components/vendor/VendorFilter';
 import VendorStats from '../components/vendor/VendorStats';
 import PageHero from '../components/ui/PageHero';
 import GradientText from '../components/ui/GradientText';
+
+// ...other imports above
+
 
 // Types for vendor data
 interface TartVariety {
@@ -37,6 +41,8 @@ interface Vendor {
   phone?: string;
   email?: string;
 }
+
+
 
 // 🖼️ Local vendor images - uncomment when available
 // import sweetHeritageImage from '../assets/images/vendors/sweet-heritage.jpeg';
@@ -375,6 +381,9 @@ const VendorsPage = () => {
         ]}
         image="/images/vendors-hero.jpg" // Update as needed for your vendor hero image
       />
+
+      {/* Food Truck Section */}
+      <FoodTruckSection />
       
       {/* Main Content */}
       <div className="relative z-10 container mx-auto px-4 py-12">

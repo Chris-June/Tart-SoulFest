@@ -1,4 +1,3 @@
-
 import { motion } from 'framer-motion';
 import { Calendar, MapPin, Clock } from 'lucide-react';
 
@@ -7,7 +6,7 @@ const Events = () => {
     {
       title: 'Tart & Soul Festival',
       date: 'June 28, 2025',
-      time: '11:00 PM - 8:00 PM',
+      time: '11:00 am - 8:00 pm',
       location: 'Sons of Kent',
       music: (
         <motion.span
@@ -20,7 +19,23 @@ const Events = () => {
             target="_blank"
             rel="noopener noreferrer"
             whileHover={{
-              color: "#7FFFD4", // tart-mint accent
+              color: "#7FFFD4",
+              textShadow: "0px 2px 8px #7FFFD4",
+              scale: 1.12,
+            }}
+            transition={{ type: "spring", stiffness: 300, damping: 15 }}
+            className="font-semibold underline underline-offset-4 decoration-tart-mint mr-2"
+            style={{ display: "inline-block" }}
+          >
+            Journeymen of Soul
+          </motion.a>
+          <span className="text-gray-300 font-semibold">and</span>{' '}
+          <motion.a
+            href="https://www.texasking.ca/"
+            target="_blank"
+            rel="noopener noreferrer"
+            whileHover={{
+              color: "#7FFFD4",
               textShadow: "0px 2px 8px #7FFFD4",
               scale: 1.12,
             }}
@@ -28,7 +43,7 @@ const Events = () => {
             className="font-semibold underline underline-offset-4 decoration-tart-mint"
             style={{ display: "inline-block" }}
           >
-            Journeyman of Soul
+            Texas Kings
           </motion.a>
         </motion.span>
       ),
@@ -66,7 +81,7 @@ const Events = () => {
           <p className="text-gray-300">Join us for these amazing gatherings</p>
         </motion.div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 gap-8">
           {events.map((event, index) => (
             <motion.div
               key={event.title}
